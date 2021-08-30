@@ -6,7 +6,7 @@ yellow='\033[0;33m'
 plain='\033[0m'
 
 # check root
-[[ $EUID -ne 0 ]] && echo -e "${red}错误: ${plain} 必须使用root用户运行此脚本！\n" && exit 1
+[[ $EUID -ne 0 ]] && echo -e "${red}Lỗi: ${plain} Chạy với quyền root！\n" && exit 1
 
 # check os
 if [[ -f /etc/redhat-release ]]; then
@@ -68,7 +68,7 @@ confirm() {
 }
 
 confirm_restart() {
-    confirm "是否重启面板，重启面板也会重启 xray" "y"
+    confirm "Có khởi động lại panel hay không, khởi động lại panel cũng sẽ khởi động lại xray" "y"
     if [[ $? == 0 ]]; then
         restart
     else
